@@ -1,5 +1,6 @@
 package com.shahriar.ChallengeApp.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -7,13 +8,14 @@ import jakarta.persistence.Id;
 public class Challenge {
     @Id
     private Long id;
-    private String title;
+    @Column(name = "challengeMonth")
+    private String month;
     private String description;
 
     public Challenge() {}
-    public Challenge(Long id, String title, String description) {
+    public Challenge(Long id, String month, String description) {
         this.id = id;
-        this.title = title;
+        this.month = month;
         this.description = description;
     }
 
@@ -33,19 +35,19 @@ public class Challenge {
         this.description = description;
     }
 
-    public String getTitle() {
-        return title;
+    public String getMonth() {
+        return month;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setMonth(String title) {
+        this.month = title;
     }
 
     @Override
     public String toString() {
         return "Challenge{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
+                ", month='" + month + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

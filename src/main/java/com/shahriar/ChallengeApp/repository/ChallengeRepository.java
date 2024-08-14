@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ChallengeRepository {
     public Challenge getChallenge(Long id);
     public List<Challenge> getAllChallenges();
-    public Challenge getChallengeByTitle(String title);
+    public Challenge getChallengeByMonth(String title);
     public boolean addChallenge(Challenge challenge);
     public boolean updateChallenge(Long id, Challenge challenge);
     public boolean deleteChallenge(Long id);

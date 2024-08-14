@@ -29,8 +29,8 @@ public class ChallengeService implements ChallengeRepository {
     }
 
     @Override
-    public Challenge getChallengeByTitle(String title) {
-        Optional<Challenge> challenge = Optional.ofNullable(challengeDao.findByTitleIgnoreCase(title));
+    public Challenge getChallengeByMonth(String month) {
+        Optional<Challenge> challenge = Optional.ofNullable(challengeDao.findByMonthIgnoreCase(month));
         return challenge.orElse(null);
     }
 
@@ -49,7 +49,7 @@ public class ChallengeService implements ChallengeRepository {
         Optional<Challenge> challenge = challengeDao.findById(id);
         if(challenge.isPresent()){
             Challenge challengeToUpdate = challenge.get();
-            challengeToUpdate.setTitle(Updatechallenge.getTitle());
+            challengeToUpdate.setMonth(Updatechallenge.getMonth());
             challengeToUpdate.setDescription(Updatechallenge.getDescription());
             challengeDao.save(challengeToUpdate);
             return true;

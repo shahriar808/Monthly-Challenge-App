@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/challenge")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MyController {
     private final ChallengeService challengeService;
 
@@ -30,9 +31,9 @@ public class MyController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/title/{title}")
-    public ResponseEntity<Challenge> getChallengeByTitle(@PathVariable String title) {
-        Challenge challenge = this.challengeService.getChallengeByTitle(title);
+    @GetMapping("/month/{month}")
+    public ResponseEntity<Challenge> getChallengeByTitle(@PathVariable String month) {
+        Challenge challenge = this.challengeService.getChallengeByMonth(month);
         if (challenge != null) {
             return ResponseEntity.ok(challenge);
         }
